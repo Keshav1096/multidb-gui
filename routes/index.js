@@ -9,6 +9,7 @@ const {
   getDocuments,
   addDocument,
   searchCollByQuery,
+  getAllConnections,
 } = require("../controller");
 const { searchByQuery } = require("../functions/mongo");
 
@@ -29,5 +30,8 @@ router.get("/mongo/documents", getDocuments);
 
 //search coll by query
 router.post("/mongo/search/query", searchCollByQuery);
+
+//get all connections
+router.get("/mongo/connections", getAllConnections);
 
 module.exports = router;

@@ -6,7 +6,7 @@ const _ = require("lodash");
 const getAllDB = (sessionId) => {
   return new Promise(async (resolve, reject) => {
     // let uri = await fetchUri(sessionId);
-    let conn = await getConnection(sessionId).catch(() => null);
+    let conn = await getConnection(sessionId).catch((err) => reject(err));
 
     const adminDb = conn.db("admin").admin();
     adminDb

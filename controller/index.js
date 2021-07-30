@@ -1,5 +1,6 @@
 // Require methods here
 const { addConnection } = require("../functions/createMongoConnection");
+const fetchAllConnections = require("../functions/fetchAllConnections");
 const {
   getDocumentsByColl,
   getCollectionsByDB,
@@ -82,6 +83,11 @@ const searchCollByQuery = (req, res) => {
     .then((data) => res.status(200).json({ success: true, data }))
     .catch((err) => res.status(500).json({ success: false, err }));
 };
+const getAllConnections = (req, res) => {
+  fetchAllConnections()
+    .then((data) => res.status(200).json({ success: true, data }))
+    .catch((err) => res.status(500).json({ success: false, err }));
+};
 
 module.exports = {
   addMongoConnection,
@@ -90,4 +96,5 @@ module.exports = {
   getCollections,
   getDocuments,
   searchCollByQuery,
+  getAllConnections
 };
